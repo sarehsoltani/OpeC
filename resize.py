@@ -22,7 +22,6 @@ while True:
     resizedFrm = resizeFrame(frame)
     cv.imshow('video1',frame)
     cv.imshow('video2', resizedFrm)
-
     if cv.waitKey(20) & 0xFF == 'q':
         break
 vidCapture.release()
