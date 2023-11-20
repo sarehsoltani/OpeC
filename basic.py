@@ -25,4 +25,25 @@ More formally, an edge is defined as discontinuities in pixel intensity, or more
 # edge detection or cascading: there are alot of methods for detecting edges. The popular one is canny
 canny = cv.Canny(blur, 125, 175)
 cv.imshow('Canndy Edges', canny)   # for reducing the edges, we can pass the blur image
+
+'''
+Dilation adds pixels to the boundaries of objects in an image, 
+while erosion removes pixels on object boundaries.
+'''
+# dilating the image
+dilated = cv.dilate(canny, (3,3), iterations=3)
+cv.imshow("dilated", dilated)
+
+eroding = cv.erode(dilated, (3,3), iterations=3)
+cv.imshow("Eroded", eroding)
+
+
+#resize 
+resized =  cv.resize(img, (300,300), interpolation=cv.INTER_CUBIC)
+cv.imshow("Resized", resized)
+
+# Cropping
+cropped = img[50:300, 300:500]
+cv.imshow('Cropped', cropped) 
+
 cv.waitKey(0)
