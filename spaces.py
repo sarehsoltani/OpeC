@@ -1,5 +1,5 @@
 import cv2 as cv
-import matplotlib.pyplot as plt
+
 '''
 color space is a system of representing an array of pixel color like RGB, Grayscale.
 Default way of opencv to read images is BGR. but matplotlib reads RGB
