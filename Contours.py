@@ -1,7 +1,12 @@
 import cv2 as cv
+import numpy as np
 
 img = cv.imread('Resources/Photos/cats.jpg')
 cv.imshow("Image", img)
+
+blank = np.zeros(img.shape[:2], dtype='uint8')
+cv.imshow("blank", blank)
+
 
 grayed = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow("Grayed", grayed)
