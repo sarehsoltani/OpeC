@@ -20,4 +20,4 @@ lab = cv.cvtColor(img, cv.COLOR_BGR2LAB)
 cv.imshow('hsv', lab)
 
 
-cv.waitKey(0) 
+cv.waitKey(0)  
