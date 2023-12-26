@@ -15,7 +15,7 @@ cv.imshow('gray', gray)
 hsv = cv.cvtColor(img, cv.COLOR_BGR2HSV)
 cv.imshow('hsv', hsv)
 
-# BGR to LAB: wash version of BRG: human based 
+# BGR to LAB: wash down  version of BRG: human based 
 lab = cv.cvtColor(img, cv.COLOR_BGR2LAB)
 cv.imshow('hsv', lab)
 
