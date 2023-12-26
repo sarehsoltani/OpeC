@@ -25,7 +25,7 @@ cv.imshow("Canny Edges", canny)
 cv.imwrite('CannyEdges.jpg', canny)
 # contour detection
 # Method 1: Make the image blur and then find the edges with canny
-# contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
+contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
 # print(f'{len(contours)} contours')
 
 '''
@@ -52,7 +52,7 @@ cv.CHAIN_APPROX_NONE: IT is the countour approximation methods. CHAIN_APPROX_NON
 CHAIN_APPROX_SIMPLE: It compresses all the return contours in the simple ones. For example: instead of returning all contours of a line, it just returns two end points.
 #of contours is the lenght of the countours 
 '''
-contours, hierarchies = cv.findContours(thresh, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
+# contours, hierarchies = cv.findContours(thresh, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
 print(f'{len(contours)} contours')
 
 '''
@@ -60,7 +60,7 @@ Visualize the contours:
 drow the found contours on the blank image
 '''
 blank = np.zeros(img.shape, dtype='uint8')
-cv.drawContours(blank, contours, -1, (0, 0, 255), 2)
+cv.drawContours(blank, contours, -1, (0, 0, 255), 1)
 cv.imshow("Contours Drown", blank)
 cv.imwrite('Contours.jpg', blank)
 cv.waitKey(0)
