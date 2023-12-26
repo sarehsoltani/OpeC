@@ -16,3 +16,14 @@ cv.waitKey(0)
 #         break
 # capture.release()
 # cv.destroyAllWindows()
+# Define a video caoture obj
+# cap = cv.VideoCapture('./Resources/Videos/kitten.mp4')
+# while(True):
+#     # capture the video frame by frame 
+#     isTrue , frame = cap.read()
+#     cv.imshow('frame', frame)
+#     if cv.waitKey(20) & 0xFF == ord('q'):
+#         break
+
+# cap.release()
+# cv.destroyAllWindows()

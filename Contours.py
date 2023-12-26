@@ -1,5 +1,9 @@
 import cv2 as cv
 import numpy as np
+'''
+Countours are boundaries of objs. line or curves that connect the dots around the obhects. Different from edges.
+'''
+
 
 img = cv.imread('Resources/Photos/cats.jpg')
 cv.imshow("Image", img)

@@ -7,6 +7,7 @@ def resizeFrame(img, scale = 0.75):
     resizedImg = cv.resize(img, dimensions)
     return resizedImg
 
+
 #resize image
 # img = cv.imread('Resources/Photos/cat_large.jpg')
 # resizedImg = resizeFrame(img)
