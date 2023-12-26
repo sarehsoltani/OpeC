@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+import os
 
 '''
 Countours are boundaries of objs. line or curves that connect the dots around the obhects. Different from edges. 
@@ -8,20 +9,20 @@ Usefull for object detection and recognition
 
 img = cv.imread('Resources/Photos/cats.jpg')
 cv.imshow("Image", img)
-
-blank = np.zeros(img.shape[:2], dtype='uint8')
-cv.imshow("blank", blank)
-
+cv.imwrite('img.jpg', img)
 
 grayed = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imshow("Grayed", grayed)
+cv.imwrite('graded.jpg', grayed)
 
 blured = cv.GaussianBlur(img, (3,3), cv.BORDER_DEFAULT)
 cv.imshow("Blured", blured)
+cv.imwrite('Blured.jpg', blured)
 
 # edge detection
 canny = cv.Canny(blured,125, 175)
 cv.imshow("Canny Edges", canny)
+cv.imwrite('CannyEdges.jpg', canny)
 # contour detection
 # Method 1: Make the image blur and then find the edges with canny
 # contours, hierarchies = cv.findContours(canny, cv.RETR_LIST, cv.CHAIN_APPROX_NONE)
@@ -37,7 +38,8 @@ cv.THRESH_BINARY: it is the threshold method that binarize the image
 '''
 
 ret, thresh = cv.threshold(grayed, 125, 255, cv.THRESH_BINARY )
-cv.imshow('Thresh', thresh)
+cv.imshow('Thresh Edges', thresh)
+cv.imwrite('Threshedges.jpg', thresh)
 # in order to reduce the number of contours we can pass the blur one to calculate the edges and then find contours
 
 
@@ -57,9 +59,8 @@ print(f'{len(contours)} contours')
 Visualize the contours: 
 drow the found contours on the blank image
 '''
-blank = np.zeros(img.shape[:2], dtype='uint8')
-
-
+blank = np.zeros(img.shape, dtype='uint8')
 cv.drawContours(blank, contours, -1, (0, 0, 255), 2)
 cv.imshow("Contours Drown", blank)
+cv.imwrite('Contours.jpg', blank)
 cv.waitKey(0)
