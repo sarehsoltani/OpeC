@@ -4,17 +4,30 @@ we can compute the histogram for rgb or graysclae images
 '''
 
 import cv2 as cv
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
+import numpy as np
 
 img = cv.imread('Resources/Photos/cats.jpg')
 cv.imshow('Cat', img)
-# gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-# cv.imshow('gray', gray)
 
-# grayscale histogram: hist size is # of bins, the range of pixel values
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+cv.imshow('gray', gray)
+
+blank =  np.zeros(img.shape[:2], 'uint8')
+# cv.imshow("blank", blank)
+
+circle = cv.circle(blank, (img.shape[1]//2, img.shape[0]//2), 100, 255, -1)
+cv.imshow('circle', circle)
+
+mask = cv.bitwise_and(gray, gray, mask= circle)
+cv.imshow('masked', mask )
+
+
+
+'''
+grayscale histogram: hist size is # of bins , the range of pixel values
+'''
 #gray_hist = cv.calcHist([gray], [0], None, [256], [0, 256])
-
-
 # plt.figure()
 # plt.title('Grayscale histogram')
 # plt.xlabel('bins')
@@ -24,14 +37,14 @@ cv.imshow('Cat', img)
 # plt.show()
 
 # color histogram
-plt.figure()
-plt.title('Colorful histogram')
-plt.xlabel('bins')
-plt.ylabel('# of pixels')
-colors = ('b', 'g', 'r')
-for i,col in enumerate(colors):
-    hist = cv.calcHist([img], [i], None, [256], [0, 256])
-    plt.plot(hist, color = col)
-    plt.xlim([0,256])
-plt.show()
+# plt.figure()
+# plt.title('Colorful histogram')
+# plt.xlabel('bins')
+# plt.ylabel('# of pixels')
+# colors = ('b', 'g', 'r')
+# for i,col in enumerate(colors):
+#     hist = cv.calcHist([img], [i], None, [256], [0, 256])
+#     plt.plot(hist, color = col)
+#     plt.xlim([0,256])
+# plt.show()
 cv.waitKey(0)   
