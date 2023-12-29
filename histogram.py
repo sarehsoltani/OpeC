@@ -16,11 +16,11 @@ cv.imshow('gray', gray)
 blank =  np.zeros(img.shape[:2], 'uint8')
 # cv.imshow("blank", blank)
 
-circle = cv.circle(blank, (img.shape[1]//2, img.shape[0]//2), 100, 255, -1)
-cv.imshow('circle', circle)
+mask = cv.circle(blank, (img.shape[1]//2, img.shape[0]//2), 100, 255, -1)
+cv.imshow('circle', mask)
 
-mask = cv.bitwise_and(gray, gray, mask= circle)
-cv.imshow('masked', mask )
+masked = cv.bitwise_and(gray, gray, mask= mask)
+cv.imshow('masked', masked)
 
 
 
